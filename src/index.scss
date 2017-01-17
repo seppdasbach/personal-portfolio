@@ -1,0 +1,80 @@
+@import "utilities";
+
+body {
+  background: linear-gradient(to bottom, #ffffff 0%,#afafaf 100%);
+  height: 100%;
+  min-height: 100vh;
+  font-family: 'Open Sans Condensed', sans-serif;
+  margin: 0;
+}
+
+
+.carousel-container {
+  margin: 40px 0;
+}
+.carousel-image {
+  height: 70vh;
+  width: 100%;
+}
+
+
+.image-container {
+  @include centeredColumn();
+  width: 100%;
+  height: 100%;
+}
+
+
+.image-item {
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 100%;
+  width: 100%;
+}
+
+.main-navigation {
+  display: flex;
+  height: 50px;
+  justify-content: space-between;
+  padding: 0 15px;
+
+  &__brand-title {
+    margin: 0;
+    cursor: pointer;
+    user-select: none;
+  }
+  &__items {
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+  }
+  &__item {
+    padding: 0 10px;
+  }
+
+  &__brand {
+    display: flex;
+    align-items: center;
+    position: relative;
+    .contact-icon {
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      will-change: transform;
+      transform: scale(0.1);
+      transition: all 200ms ease-in;
+    }
+    &--clicked {
+      .instagram {
+        transform: translateY(60px) scale(1);
+        opacity: 1;
+      }
+      .linkedin {
+        transform: translate(50px, 57px) scale(1);
+        opacity: 1;
+      }
+    }
+  }
+}
