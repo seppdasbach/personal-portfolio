@@ -1,5 +1,8 @@
 # personal-portfolio
 
+Site [here](sepp.surge.sh)
+
+
 ### Prereq's
 1) Download [node](https://nodejs.org/en/download/).
 2) Run `npm install` from your terminal when you're in this folder

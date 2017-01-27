@@ -9,12 +9,6 @@ body {
 }
 
 .app {
-  //height: 100vh;
-  //width: 100vw;
-  //overflow: scroll;
-  //background-position: center;
-  //background-size: contain;
-  //background-repeat: no-repeat;
 }
 
 
@@ -22,7 +16,7 @@ body {
   margin: 0;
 }
 .carousel-image {
-  height: 100vh;
+  height: calc(100vw/1.5);
   width: 100%;
 }
 $img-x-offset: 250px;
@@ -39,13 +33,8 @@ $img-x-offset: 250px;
 }
 
 .sepp-logo {
-  transform: translateX($img-x-offset);
-  width: 500px;
-  animation: logoIntro 400ms ease-in-out forwards;
-  animation-delay: 2000ms;
+  width: 100px;
 }
-
-
 
 
 .image-container {
@@ -77,8 +66,6 @@ $img-x-offset: 250px;
   color: white;
 
   &__brand-title {
-    margin-top: 20px;
-
   }
   &__items {
     font-size: 20px;
@@ -105,7 +92,7 @@ $img-x-offset: 250px;
       &:before {
         $size: 30px;
         content: ' ';
-        background-color: lightgrey;
+        background-color: rgba(white, .8);
         height: $size;
         width: $size;
         border-radius: $size;
@@ -135,5 +122,30 @@ $img-x-offset: 250px;
     align-items: center;
     position: relative;
 
+  }
+}
+
+
+.gallery {
+  width: 100%;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  &__heading {
+
+  }
+  &__container {
+    width: 95%;
+  }
+  &__title {
+    padding: {
+      left: 30px;
+    }
+    margin: {
+      top: .5em;
+      bottom: 0;
+    }
   }
 }

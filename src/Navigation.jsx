@@ -46,7 +46,7 @@ class Navigation extends Component {
                             </a>
                         </div>
                         <div className="contact-icon email" title="Email">
-                            <a href="mailto:sippycup14@gmail.com" target="_blank">
+                            <a href="mailto:seppdasbach14@gmail.com" target="_blank">
                                 <img src={gmail} width="100%"/>
                             </a>
                         </div>
