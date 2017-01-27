@@ -8,6 +8,7 @@
     "build": "webpack --progress --colors",
     "serve": "node server.js",
     "prebuild": "npm run clean",
+    "deploy": "npm run build && surge --domain sepp.surge.sh ./dist",
     "clean": "rm -rf dist/*"
   },
   "repository": {

@@ -11,6 +11,7 @@ const bundler = new WebpackDevServer(webpack(config), {
     quiet: false,
     noInfo: true,
     inline: true,
+    compress: true,
     stats: {
         colors: true
     },
