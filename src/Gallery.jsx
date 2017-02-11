@@ -25,7 +25,7 @@ const getSizeConfig = (src) => {
         }
     }
     return {
-        width: 540,
+        width: 340,
         height: 360,
         aspectRatio: 1.5,
     };

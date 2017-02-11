@@ -1,16 +1,19 @@
 @import "utilities";
 
 body {
-  background: white;
   height: 100%;
   min-height: 100vh;
   font-family: 'Source Sans Pro', sans-serif;
   margin: 0;
   box-sizing: content-box;
+  padding: 20px;
+  background-image: linear-gradient(-35deg, $grey-medium 20%, $grey-light 30%, #4A5962 100%);
 }
 
 .app-shell {
   position: relative;
+  background-color: $white;
+  padding: 10px;
 }
 
 
@@ -40,7 +43,7 @@ $img-x-offset: 250px;
 
 
 .image-container {
-  @include centeredColumn();
+  @include centered-column();
   width: 100%;
   height: 100%;
 }
@@ -78,6 +81,8 @@ $img-x-offset: 250px;
     font-size: 20px;
     display: flex;
     align-items: center;
+
+
   }
   &__item {
     padding: 0 10px;
@@ -160,25 +165,41 @@ $img-x-offset: 250px;
 .navigation-slider {
   position: absolute;
   background-color: white;
-  height: 410px;
+  height: 70px;
   top: 0;
-  width: 100%;
-  padding: {
-    top: 15px;
-    left: 15px;
-  };
+  width: calc(100%);
   font-size: 28px;
   color: black;
+  transform-origin: top;
+  @include on-small {
+    height: 250px;
+  }
 }
 .nav-items {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  height: 100%;
+  color: $dark;
+  padding: {
+    left: 15px;
+    right: 15px;
+  }
   align-items: center;
-  height: 50%;
+   @include on-small {
+    height: 250px;
+    flex-direction: column;
+  }
   a {
     text-transform: uppercase;
     text-decoration: none;
-    font-size: 48px;
+    font-size: 24px;
     color: black;
+  }
+  i {
+    @include on-small {
+      align-self: flex-start;
+      padding-top: 5px;
+    }
   }
 }

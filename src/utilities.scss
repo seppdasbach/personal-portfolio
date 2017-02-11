@@ -1,4 +1,28 @@
-@mixin centeredColumn {
+$grey-medium: #9EA5A9;
+$grey-light: #DFE0E1;
+$white: #F6F6F6;
+$grey-dark: #77848C;
+$dark: #353B40;
+
+@mixin on-large {
+  @media only screen and (min-width: 768px) {
+    @content
+  }
+}
+
+@mixin on-small {
+  @media only screen and (max-width: 767px) {
+    @content;
+  }
+}
+@mixin on-small-portrait {
+  @media only screen and (max-width: 767px) and (orientation: portrait) {
+      @content;
+  }
+}
+
+
+@mixin centered-column {
   display: flex;
   flex-direction: column;
   justify-content: center;

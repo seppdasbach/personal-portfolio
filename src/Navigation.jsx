@@ -59,9 +59,9 @@ class Navigation extends Component {
 
     getMenuIconStyles(){
         const { match } = this.props;
-        if(match.url == '/contact'){
-            return { color: 'black' };
-        }
+        // if(match.url == '/contact'){
+        //     return { color: 'black' };
+        // }
         return {};
     }
 
@@ -72,7 +72,6 @@ class Navigation extends Component {
             'main-navigation__item--clicked': this.state.expandedContact
         });
         const { match } = this.props;
-        console.log(match);
         return (
             <nav className="main-navigation">
                 <div className={ brandClasses }>
@@ -80,16 +79,20 @@ class Navigation extends Component {
                         <i className="fa fa-bars" style={this.getMenuIconStyles()}/>
                     </div>
                 </div>
-                <Motion defaultStyle={{ y: -425 }}
-                        style={{ y: spring(this.state.opened ? -5 : -425, { stiffness: 330 }) }}>
-                    { ({ y }) => (
+                <Motion defaultStyle={{ y: 0, scale: 0 }}
+                        style={{
+                            y: spring(this.state.opened ? 0 : 0, { stiffness: 330 }),
+                            scale: spring(this.state.opened ? 1: 0)
+                        }}>
+                    { ({ y, scale }) => (
                         <div className="navigation-slider"
-                             style={{ transform: `translateY(${y}px)`}}>
-                                <i className="fa fa-bars"
-
-                                   onClick={ () => this.toggleMenu()}/>
-
+                             style={{
+                                 transform: `translateY(${y}px) scaleY(${scale})`,
+                                 color: `rgba(0,0,0, ${scale})`
+                             }}>
                                 <div className="nav-items">
+                                    <i className="fa fa-bars"
+                                        onClick={ () => this.toggleMenu()}/>
                                     <Link to="/">home</Link>
                                     <Link to="/adventures">adventures</Link>
                                     <Link to="/lifestyle">life</Link>
