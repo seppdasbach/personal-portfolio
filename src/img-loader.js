@@ -1,6 +1,8 @@
 const featuredCtx = require.context('../Images/Featured/', true, /\.jpg$/);
 const lifestyleCtx = require.context('../Images/Lifestyle/', true, /\.jpg$/);
 const outdoorsCtx = require.context('../Images/Outdoors-Adventure/', true, /\.jpg$/);
+const musicCtx = require.context('../Images/Music-Sports/', true, /\.jpg$/);
+const peopleCtx = require.context('../Images/People/', true, /\.jpg$/);
 
 const imgs = [
     {
@@ -14,6 +16,14 @@ const imgs = [
     {
         key: 'outdoors',
         context: outdoorsCtx
+    },
+    {
+        key: 'music',
+        context: musicCtx
+    },
+    {
+        key: 'people',
+        context: peopleCtx
     }
 ];
 

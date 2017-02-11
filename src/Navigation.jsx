@@ -1,21 +1,68 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import classNames from 'classnames';
+import { Motion, spring } from 'react-motion';
+
+import { Link } from 'react-router-dom';
+
 import instagram from '../icons/instagram.png';
 import linkedIn from '../icons/linkedin.png';
 import gmail from '../icons/gmail.png';
 import sepp from '../icons/sepp-white.png';
+
+
+const PopOutWidget = () => (
+     <div onClick={ () => this.toggleExpandedContact() }
+        className={ contactClasses }>
+        Contact
+        <div className="contact-icon instagram" title="Instagram">
+            <a href="https://www.instagram.com/seppsippycup/" target="_blank">
+                <img src={instagram} width="100%"/>
+            </a>
+        </div>
+        <div className="contact-icon linkedin" title="Linkedin">
+            <a href="https://www.linkedin.com/in/sepp-dasbach-27274288" target="_blank">
+                <img src={linkedIn} width="100%"/>
+            </a>
+        </div>
+        <div className="contact-icon email" title="Email">
+            <a href="mailto:seppdasbach14@gmail.com" target="_blank">
+                <img src={gmail} width="100%"/>
+            </a>
+        </div>
+    </div>
+);
 
 class Navigation extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            expandedContact: false
+            expandedContact: false,
+            opened: false
         };
     }
 
     toggleExpandedContact() {
         this.setState({expandedContact: !this.state.expandedContact});
+    }
+
+    toggleMenu(){
+        this.setState({ opened: !this.state.opened });
+    }
+    componentDidUpdate(prevProps){
+        const { match: prevMatch } = prevProps
+        const { match } = this.props;
+        if(match.url !== prevMatch.url){
+            this.setState({ opened: false });
+        }
+    }
+
+    getMenuIconStyles(){
+        const { match } = this.props;
+        if(match.url == '/contact'){
+            return { color: 'black' };
+        }
+        return {};
     }
 
     render() {
@@ -24,34 +71,35 @@ class Navigation extends Component {
         const contactClasses = classNames('main-navigation__item',{
             'main-navigation__item--clicked': this.state.expandedContact
         });
+        const { match } = this.props;
+        console.log(match);
         return (
             <nav className="main-navigation">
                 <div className={ brandClasses }>
-                    <h1 className="main-navigation__brand-title">
-                        <img className="sepp-logo" src={sepp}/>
-                    </h1>
-                </div>
-                <div className="main-navigation__items">
-                    <div onClick={ () => this.toggleExpandedContact() }
-                        className={ contactClasses }>
-                        Contact
-                        <div className="contact-icon instagram" title="Instagram">
-                            <a href="https://www.instagram.com/seppsippycup/" target="_blank">
-                                <img src={instagram} width="100%"/>
-                            </a>
-                        </div>
-                        <div className="contact-icon linkedin" title="Linkedin">
-                            <a href="https://www.linkedin.com/in/sepp-dasbach-27274288" target="_blank">
-                                <img src={linkedIn} width="100%"/>
-                            </a>
-                        </div>
-                        <div className="contact-icon email" title="Email">
-                            <a href="mailto:seppdasbach14@gmail.com" target="_blank">
-                                <img src={gmail} width="100%"/>
-                            </a>
-                        </div>
+                    <div className="main-navigation__brand-title" onClick={ () => this.toggleMenu() }>
+                        <i className="fa fa-bars" style={this.getMenuIconStyles()}/>
                     </div>
                 </div>
+                <Motion defaultStyle={{ y: -425 }}
+                        style={{ y: spring(this.state.opened ? -5 : -425, { stiffness: 330 }) }}>
+                    { ({ y }) => (
+                        <div className="navigation-slider"
+                             style={{ transform: `translateY(${y}px)`}}>
+                                <i className="fa fa-bars"
+
+                                   onClick={ () => this.toggleMenu()}/>
+
+                                <div className="nav-items">
+                                    <Link to="/">home</Link>
+                                    <Link to="/adventures">adventures</Link>
+                                    <Link to="/lifestyle">life</Link>
+                                    <Link to="/music">music</Link>
+                                    <Link to="/people">people</Link>
+                                    <Link to="/contact">contact</Link>
+                                </div>
+                        </div>
+                    )}
+                </Motion>
             </nav>
         );
     }

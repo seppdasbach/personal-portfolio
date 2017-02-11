@@ -1,0 +1,22 @@
+.contact-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+
+.contact {
+  width: 80vw;
+  height: 80vh;
+  border: 1px solid #CCC;
+  padding: 10px;
+  box-shadow: 0 2px 5px #CCC, -2px 2px 5px #CCC;
+  font-weight: 300;
+
+  &__name {
+    font-weight: 300;
+    text-align: right;
+  }
+}

@@ -21,8 +21,11 @@ const babelLoader = {
 };
 
 const fileLoader = {
-    test: /\.(jpe?g|png|gif|svg)$/i,
-    loader: 'file-loader'
+    test: /\.(jpe?g|png|gif|svg|ttf|woff|woff2)$/i,
+    loader: 'file-loader',
+    query: {
+        name: '[name].[ext]'
+    }
 };
 
 const sassLoader = {
@@ -33,6 +36,11 @@ const sassLoader = {
 const cssLoader = {
     test: /\.css$/,
     loaders: ['style', 'css']
+};
+
+const jsonLoader = {
+    test: /\.json$/,
+    loader: 'json-loader'
 };
 
 //Will turn on when deployed
@@ -51,7 +59,8 @@ module.exports = {
             babelLoader,
             fileLoader,
             sassLoader,
-            cssLoader
+            cssLoader,
+            jsonLoader
         ]
     },
     plugins: [

@@ -4,11 +4,13 @@ body {
   background: white;
   height: 100%;
   min-height: 100vh;
-  font-family: 'Open Sans Condensed', sans-serif;
+  font-family: 'Source Sans Pro', sans-serif;
   margin: 0;
+  box-sizing: content-box;
 }
 
-.app {
+.app-shell {
+  position: relative;
 }
 
 
@@ -57,15 +59,20 @@ $img-x-offset: 250px;
   height: 100px;
   align-items: flex-start;
   justify-content: space-between;
-  padding: 10px  15px;
-  position: fixed;
+
+  position: absolute;
   top: 0;
+  right: 0;
+  left: 0;
   z-index: 10;
-  left: 25px;
-  right: 25px;
   color: white;
 
   &__brand-title {
+    padding: {
+      top: 15px;
+      left: 15px;
+    };
+    font-size: 28px;
   }
   &__items {
     font-size: 20px;
@@ -147,5 +154,31 @@ $img-x-offset: 250px;
       top: .5em;
       bottom: 0;
     }
+  }
+}
+
+.navigation-slider {
+  position: absolute;
+  background-color: white;
+  height: 410px;
+  top: 0;
+  width: 100%;
+  padding: {
+    top: 15px;
+    left: 15px;
+  };
+  font-size: 28px;
+  color: black;
+}
+.nav-items {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 50%;
+  a {
+    text-transform: uppercase;
+    text-decoration: none;
+    font-size: 48px;
+    color: black;
   }
 }
