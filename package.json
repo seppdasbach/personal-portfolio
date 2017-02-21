@@ -48,11 +48,13 @@
     "install": "^0.8.4",
     "jquery": "^3.1.1",
     "json-loader": "^0.5.4",
+    "ngrok": "^2.2.6",
     "npm": "^4.1.2",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
     "react-motion": "^0.4.7",
     "react-photo-gallery": "^4.2.16",
-    "react-router-dom": "next"
+    "react-router-dom": "next",
+    "styled-components": "^1.4.3"
   }
 }

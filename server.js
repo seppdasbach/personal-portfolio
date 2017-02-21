@@ -7,10 +7,11 @@ const PORT = 8080;
 
 
 const clientRoutes = [
-    'lifestyle',
-    'adventures',
-    'music',
-    'people',
+    'work',
+    'work/lifestyle',
+    'work/adventures',
+    'work/music',
+    'work/people',
     'contact'
 ].reduce((accum, i) => Object.assign(accum, { [i]: `http://localhost:${PORT}/` }), {});
 

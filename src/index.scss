@@ -3,44 +3,24 @@
 body {
   height: 100%;
   min-height: 100vh;
+  width: 100%;
+  overflow-x: hidden;
   font-family: 'Source Sans Pro', sans-serif;
   margin: 0;
   box-sizing: content-box;
-  padding: 20px;
-  background-image: linear-gradient(-35deg, $grey-medium 20%, $grey-light 30%, #4A5962 100%);
+
+  background-color: #131210;
 }
 
 .app-shell {
-  position: relative;
-  background-color: $white;
-  padding: 10px;
+
+}
+a {
+  color: inherit;
+  text-decoration: none;
 }
 
-
-.carousel-container {
-  margin: 0;
-}
-.carousel-image {
-  height: calc(100vw/1.5);
-  width: 100%;
-}
 $img-x-offset: 250px;
-
-@keyframes logoIntro {
-  0% {
-    transform: translateX($img-x-offset);
-    width: 500px;
-  }
-  100% {
-    transform: translateX(0);
-    width: 100px;
-  }
-}
-
-.sepp-logo {
-  width: 100px;
-}
-
 
 .image-container {
   @include centered-column();
@@ -55,151 +35,4 @@ $img-x-offset: 250px;
   background-repeat: no-repeat;
   height: 100%;
   width: 100%;
-}
-
-.main-navigation {
-  display: flex;
-  height: 100px;
-  align-items: flex-start;
-  justify-content: space-between;
-
-  position: absolute;
-  top: 0;
-  right: 0;
-  left: 0;
-  z-index: 10;
-  color: white;
-
-  &__brand-title {
-    padding: {
-      top: 15px;
-      left: 15px;
-    };
-    font-size: 28px;
-  }
-  &__items {
-    font-size: 20px;
-    display: flex;
-    align-items: center;
-
-
-  }
-  &__item {
-    padding: 0 10px;
-    position: relative;
-    cursor: pointer;
-    user-select: none;
-    will-change: transform;
-    transition: transform 100ms ease-in-out;
-    .contact-icon {
-      position: absolute;
-      top: 0;
-      right: 10px;
-      opacity: 0;
-      height: 30px;
-      width: 30px;
-      will-change: transform;
-      transform: scale(0.1);
-      transition: all 200ms ease-in-out;
-      &:before {
-        $size: 30px;
-        content: ' ';
-        background-color: rgba(white, .8);
-        height: $size;
-        width: $size;
-        border-radius: $size;
-        position: absolute;
-        z-index: -1;
-      }
-    }
-    &--clicked {
-      transform: scale(1.1);
-      .instagram {
-        transform: translate(-5px, 60px) scale(1);
-        opacity: 1;
-      }
-      .linkedin {
-        transform: translate(-60px, 40px) scale(1);
-        opacity: 1;
-      }
-      .email {
-         transform: translate(-90px, 0px) scale(1);
-          opacity: 1;
-      }
-    }
-  }
-
-  &__brand {
-    display: flex;
-    align-items: center;
-    position: relative;
-
-  }
-}
-
-
-.gallery {
-  width: 100%;
-  background: white;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  &__heading {
-
-  }
-  &__container {
-    width: 95%;
-  }
-  &__title {
-    padding: {
-      left: 30px;
-    }
-    margin: {
-      top: .5em;
-      bottom: 0;
-    }
-  }
-}
-
-.navigation-slider {
-  position: absolute;
-  background-color: white;
-  height: 70px;
-  top: 0;
-  width: calc(100%);
-  font-size: 28px;
-  color: black;
-  transform-origin: top;
-  @include on-small {
-    height: 250px;
-  }
-}
-.nav-items {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  height: 100%;
-  color: $dark;
-  padding: {
-    left: 15px;
-    right: 15px;
-  }
-  align-items: center;
-   @include on-small {
-    height: 250px;
-    flex-direction: column;
-  }
-  a {
-    text-transform: uppercase;
-    text-decoration: none;
-    font-size: 24px;
-    color: black;
-  }
-  i {
-    @include on-small {
-      align-self: flex-start;
-      padding-top: 5px;
-    }
-  }
 }

@@ -1,6 +1,9 @@
 import React from 'react';
 import ReactPhotoGallery from 'react-photo-gallery';
+import styled from 'styled-components';
 import imageConfig from '../image.config.json';
+import { container } from './media';
+import { CenteredContainer } from './ui';
 
 const getSizeConfig = (src) => {
     if(imageConfig.portrait.includes(src)){
@@ -34,26 +37,23 @@ const getSizeConfig = (src) => {
 
 
 const makeImageConfig = (src) => ({
-    src,
+    src: `/${src}`,
     lightboxImage: {
-        src
+        src: `/${src}`
     },
     ...getSizeConfig(src)
 });
 
-//
-// function shuffle(a) {
-//     for (let i = a.length; i; i--) {
-//         let j = Math.floor(Math.random() * i);
-//         [a[i - 1], a[j]] = [a[j], a[i - 1]];
-//     }
-// }
-
+const GalleryContainer = styled.div`
+    ${ container() }
+`;
 
 const Gallery = ({ title, photos }) => (
-    <div className="gallery">
-        <ReactPhotoGallery photos={photos.map(makeImageConfig)}/>
-    </div>
+    <CenteredContainer>
+        <GalleryContainer>
+            <ReactPhotoGallery photos={photos.map(makeImageConfig)}/>
+        </GalleryContainer>
+    </CenteredContainer>
 );
 
 export default Gallery;
